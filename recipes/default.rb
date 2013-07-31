@@ -21,11 +21,11 @@ package "ntp"
 
 service "ntpd" do
   action [:enable, :start]
-  only_if { ['redhat'].include?(node['platform_family']) }
+  only_if { ['rhel'].include?(node['platform_family']) }
 end
 
 case node['platform_family']
-when 'redhat'
+when 'rhel'
   %w{crontabs git freetype libpng}.each do |pkg|
     package pkg
   end
