@@ -23,6 +23,13 @@ Recipes
 
 default recipe sets up the system per the above.
 
+If you want real SSL certificates, create the `/etc/opscode/private-chef.rb` file if it doesn't exist already and include something like the following:
+
+  nginx['ssl_certificate']  = "/etc/opscode/ssl/chefserver.cert"
+  nginx['ssl_certificate_key']  = "/etc/opscode/ssl/chefserver.key"
+
+Then run `private-chef-ctl reconfigure`.
+
 License and Author
 ------------------
 
